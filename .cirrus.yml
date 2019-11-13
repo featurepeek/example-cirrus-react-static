@@ -1,0 +1,10 @@
+container:
+  image: node:latest
+
+check_task:
+  node_modules_cache:
+    folder: node_modules
+    fingerprint_script: cat yarn.lock
+    populate_script: yarn install
+  build_script: yarn build
+  ping_featurepeek_script: bash <(curl -s https://peek.run/ci)
